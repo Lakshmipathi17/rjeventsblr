@@ -282,7 +282,7 @@ const PhotographyWedding = () => {
                   </span>
 
                   <span className="text-sm opacity-80">
-                    {pkg}
+                    {/*pkg.price} */}
                   </span>
 
                 </div>
