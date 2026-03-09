@@ -13,7 +13,7 @@ import PackageWedding from "./pages/PackageWedding";
 import PhotographyGruhapravesha from "./pages/PhotographyGruhapravesha";
 import PhotographyBabyShower from "./pages/PhotographyBabyShower";
 import PhotographyCorporateEvents from "./pages/PhotographyCorporateEvents";
-import PhotographyBirthday from "./pages/Photographybirthday";
+import PhotographyBirthday from "./pages/PhotographyBirthday";
 import DecorationCorporateEvents from "./pages/DecorationCorporateEvents";
 import PhotographyAnniversary from "./pages/PhotographyAnniversary";
 import DecorationGruhapravesha from "./pages/DecorationGruhapravesha";

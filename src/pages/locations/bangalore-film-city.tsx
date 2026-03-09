@@ -128,7 +128,7 @@ const BangaloreFilmCity = () => {
           src={img}
           loading={i < 4 ? "eager" : "lazy"}
           decoding="async"
-          fetchpriority={i < 4 ? "high" : "low"}
+          fetchPriority={i < 4 ? "high" : "low"}
           className="w-full h-full object-cover transition duration-[1200ms] ease-out group-hover:scale-110 will-change-transform"
         />
 

@@ -95,7 +95,7 @@ const GallerySection = () => {
                   alt={img.alt}
                   loading={i < 4 ? "eager" : "lazy"}
                   decoding="async"
-                  fetchpriority={i < 4 ? "high" : "low"}
+                  fetchPriority={i < 4 ? "high" : "low"}
                   className={`w-full h-full object-cover ${img.position || "object-center"} transition-transform duration-[600ms] group-hover:scale-105 will-change-transform`}
                 />
 
