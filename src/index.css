@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 30 10% 18%;
+
+    --card: 36 30% 98%;
+    --card-foreground: 30 10% 18%;
+
+    --popover: 36 33% 99%;
+    --popover-foreground: 30 10% 18%;
+
+    --primary: 348 45% 32%;
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 42 50% 54%;
+    --secondary-foreground: 30 10% 15%;
+
+    --muted: 36 18% 93%;
+    --muted-foreground: 30 8% 50%;
+
+    --accent: 42 50% 54%;
+    --accent-foreground: 30 10% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 36 15% 88%;
+    --input: 36 15% 88%;
+    --ring: 42 50% 54%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 36 33% 97%;
+    --sidebar-foreground: 30 10% 30%;
+    --sidebar-primary: 348 45% 32%;
+    --sidebar-primary-foreground: 36 33% 97%;
+    --sidebar-accent: 36 18% 94%;
+    --sidebar-accent-foreground: 30 10% 18%;
+    --sidebar-border: 36 12% 90%;
+    --sidebar-ring: 42 50% 54%;
+
+    /* Custom tokens */
+    --maroon: 348 45% 32%;
+    --maroon-deep: 348 50% 24%;
+    --gold: 42 50% 54%;
+    --gold-light: 42 40% 68%;
+    --gold-dark: 42 55% 42%;
+    --cream: 36 33% 97%;
+    --cream-dark: 36 18% 93%;
+
+    --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Outfit', system-ui, sans-serif;
+
+    --gradient-hero: linear-gradient(135deg, hsl(348 45% 32% / 0.85), hsl(348 50% 24% / 0.9));
+    --gradient-gold: linear-gradient(135deg, hsl(42 50% 54%), hsl(42 55% 42%));
+    --gradient-maroon: linear-gradient(135deg, hsl(348 45% 32%), hsl(348 50% 24%));
+    --shadow-soft: 0 4px 24px -4px hsl(30 10% 50% / 0.06);
+    --shadow-card: 0 8px 32px -8px hsl(30 10% 50% / 0.08);
+    --shadow-gold: 0 4px 20px -4px hsl(42 50% 54% / 0.2);
+  }
+
+  .dark {
+    --background: 30 12% 8%;
+    --foreground: 36 20% 90%;
+    --card: 30 12% 11%;
+    --card-foreground: 36 20% 90%;
+    --popover: 30 12% 11%;
+    --popover-foreground: 36 20% 90%;
+    --primary: 42 50% 54%;
+    --primary-foreground: 30 12% 8%;
+    --secondary: 348 45% 32%;
+    --secondary-foreground: 36 20% 90%;
+    --muted: 30 10% 15%;
+    --muted-foreground: 36 12% 55%;
+    --accent: 42 50% 54%;
+    --accent-foreground: 30 12% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 10% 18%;
+    --input: 30 10% 18%;
+    --ring: 42 50% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply px-6 py-3 rounded-lg font-medium text-sm tracking-wide transition-all duration-300;
+    background: var(--gradient-gold);
+    color: hsl(36 33% 99%);
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px -4px hsl(42 50% 54% / 0.3);
+  }
+
+  .btn-gold-outline {
+    @apply px-6 py-3 rounded-lg font-medium text-sm tracking-wide transition-all duration-300 border;
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
+    background: transparent;
+  }
+  .btn-gold-outline:hover {
+    background: hsl(var(--gold) / 0.06);
+    transform: translateY(-1px);
+  }
+  .btn-elegant-outline {
+    @apply relative overflow-hidden px-8 py-4 rounded-xl text-sm font-medium tracking-wide border transition-all duration-300;
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
+    background: transparent;
+  }
+
+  .btn-elegant-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: hsl(var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: -1;
+  }
+
+  .btn-elegant-outline:active::before {
+    transform: scaleX(1);
+  }
+
+  .btn-elegant-outline:active {
+    color: hsl(var(--primary-foreground));
+  }
+  .card-premium {
+    @apply rounded-xl overflow-hidden transition-all duration-300;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+  }
+  .card-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px -8px hsl(30 10% 50% / 0.1);
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    @apply text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight;
+    color: hsl(var(--foreground));
+  }
+
+  .section-heading .gold {
+    color: hsl(var(--gold));
+  }
+
+  .top-bar {
+    background: var(--gradient-maroon);
+    color: hsl(var(--primary-foreground));
+  }
+
+  .nav-glass {
+    background: hsl(0 0% 100% / 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px -4px hsl(0 0% 0% / 0.08);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      hsl(348 40% 14% / 0.7) 0%,
+      hsl(348 35% 20% / 0.55) 50%,
+      hsl(30 10% 10% / 0.45) 100%
+    );
+  }
+
+  .gallery-item {
+    @apply overflow-hidden rounded-xl cursor-pointer;
+  }
+  .gallery-item img {
+    @apply transition-transform duration-500;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+/* Base table styling */
+.pricing-table th,
+.pricing-table td{
+  position: relative;
+  transition: all .35s ease;
+}
+
+/* COLUMN HOVER — Basic */
+.pricing-table:has(td:nth-child(2):hover) th:nth-child(2),
+.pricing-table:has(td:nth-child(2):hover) td:nth-child(2){
+  transform: translateY(-6px) scale(1.02);
+  z-index: 5;
+  box-shadow:
+  0 20px 45px rgba(0,0,0,0.35),
+  0 0 18px rgba(212,175,55,0.25);
+}
+
+/* COLUMN HOVER — Premium */
+.pricing-table:has(td:nth-child(3):hover) th:nth-child(3),
+.pricing-table:has(td:nth-child(3):hover) td:nth-child(3){
+  transform: translateY(-6px) scale(1.02);
+  z-index: 5;
+  box-shadow:
+  0 20px 45px rgba(0,0,0,0.35),
+  0 0 18px rgba(212,175,55,0.25);
+}
+
+/* COLUMN HOVER — Luxury */
+.pricing-table:has(td:nth-child(4):hover) th:nth-child(4),
+.pricing-table:has(td:nth-child(4):hover) td:nth-child(4){
+  transform: translateY(-6px) scale(1.02);
+  z-index: 5;
+  box-shadow:
+  0 20px 45px rgba(0,0,0,0.35),
+  0 0 18px rgba(212,175,55,0.25);
+}
+
+/* Prevent header color change */
+.pricing-table th{
+  color: inherit !important;
+}
+
+}
+@keyframes slideProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes goldShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slideProgress {
+  animation: slideProgress 5s linear forwards;
+}
